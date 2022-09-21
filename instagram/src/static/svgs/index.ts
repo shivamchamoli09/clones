@@ -1,0 +1,11 @@
+export { default as HomeIcon } from "./home";
+export { default as InstagramHeader } from "./instage_header";
+export { default as ChatIcon } from "./chat";
+export { default as NewPostIcon } from "./new_post";
+export { default as CompassIcon } from "./compass";
+export { default as ActivityFeedIcon } from "./activity_feed";
+export { default as LikeIcon } from "./like";
+export { default as CommentIcon } from "./comment";
+export { default as ShareIcon } from "./share";
+export { default as SavePostIcon } from "./save_post";
+export { default as MediaSelectIcon } from "./media_select";
