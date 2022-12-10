@@ -71,8 +71,8 @@ const ContentCarousel: React.FC<IContentCarousel> = (props) => {
                 // display="flex"
                 m={1}
                 sx={{ cursor: "pointer" }}
-                onMouseOver={() => handleMouseOver(content)}
-                className="item-container"
+                // onMouseOver={() => handleMouseOver(content)}
+                // className="item-container"
               >
                 <img
                   src={content.imageUrl}
