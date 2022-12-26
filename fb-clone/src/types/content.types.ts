@@ -10,9 +10,18 @@ export type UserMessageContentType = {
   senderId: string | number;
   receiverId: string | number;
   message: string;
-  created_at: string | Date;
+  created_at?: string | Date;
   status: MessageStatusType;
+  type: MESSAGE_TYPE;
 };
 
 export type MessageStatusType = "SENT" | "DELIVERED" | "READ";
 export type IdType = string | number;
+
+export type MESSAGE_TYPE = "IMAGE" | "LINK" | "DOCUMENT" | "TEXT" | "FILE";
+export interface IUserMessages {
+  id: string | number;
+  userId: string | number;
+  chatUserId: string | number;
+  messages: UserMessageContentType[];
+}

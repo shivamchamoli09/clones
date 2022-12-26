@@ -22,7 +22,8 @@
       "@static": ["static/"],
       "@core/*": ["core/*"],
       "@seeds": ["seeds/"],
-      "@types": ["types/"]
+      "@types": ["types/"],
+      "@store": ["core/store/"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

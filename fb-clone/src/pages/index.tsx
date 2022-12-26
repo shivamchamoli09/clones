@@ -30,7 +30,11 @@ const Home: NextPage = () => {
             <UserList onUserClick={setCurrentUser} />
           </Grid>
           <Grid item xs={0} md={8} position="relative">
-            {currentUser?.id ? <Chat /> : <HomeDefault />}
+            {currentUser?.id ? (
+              <Chat chatUser={currentUser} />
+            ) : (
+              <HomeDefault />
+            )}
           </Grid>
         </Grid>
       </Box>

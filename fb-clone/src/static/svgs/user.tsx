@@ -9,7 +9,7 @@ export default function UserIcon() {
       version="1.1"
       x="0px"
       y="0px"
-      enable-background="new 0 0 212 212"
+      enableBackground="new 0 0 212 212"
       xmlSpace="preserve"
     >
       <path

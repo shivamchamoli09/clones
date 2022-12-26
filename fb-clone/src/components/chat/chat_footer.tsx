@@ -1,8 +1,10 @@
 import { Box, IconButton, TextField } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { AttachmentIcon, SmileyIcon } from "@static";
 import { ChatFooterContainerStyles, ChatInputStyles } from "@styles/chat";
 import MicOutlinedIcon from "@mui/icons-material/MicOutlined";
+import AttachmentSpeedDial from "@components/attachment_speed_dial";
+import EmojiInputBoard from "./emoji_inputboard";
 
 interface IChatFooter {}
 
@@ -17,22 +19,32 @@ const IconTemplate = ({
 };
 
 const ChatFooter: React.FC<IChatFooter> = (props) => {
+  const [openEmojiBoard, setOpenEmojiBoard] = useState<boolean>(false);
+
   return (
-    <Box display={"flex"} sx={ChatFooterContainerStyles}>
-      <IconTemplate>
-        <SmileyIcon />
-      </IconTemplate>
+    <Box sx={ChatFooterContainerStyles}>
+      {openEmojiBoard && <EmojiInputBoard />}
 
-      <IconTemplate>
-        <AttachmentIcon />
-      </IconTemplate>
+      <Box display={"flex"} alignItems="center" sx={{ height: "65px" }}>
+        <IconTemplate
+          onClick={() => {
+            setOpenEmojiBoard((prev) => !prev);
+          }}
+        >
+          <SmileyIcon />
+        </IconTemplate>
 
-      {/* <Box id="input-container"> */}
-      <TextField fullWidth sx={ChatInputStyles} />
+        {/* <IconTemplate> */}
+        <AttachmentSpeedDial />
+        {/* </IconTemplate> */}
 
-      <IconTemplate>
-        <MicOutlinedIcon />
-      </IconTemplate>
+        {/* <Box id="input-container"> */}
+        <TextField fullWidth sx={ChatInputStyles} />
+
+        <IconTemplate>
+          <MicOutlinedIcon />
+        </IconTemplate>
+      </Box>
     </Box>
   );
 };
