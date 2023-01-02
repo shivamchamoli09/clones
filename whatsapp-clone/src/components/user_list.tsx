@@ -21,6 +21,7 @@ import {
 import { PinIcon, ReadIcon, SingleTickIcon, UserIcon } from "@static";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { UserListSearchStyles } from "@styles/components.styles";
+import { useState } from "react";
 
 interface IUser extends UserContent {
   // id: IdType;
@@ -35,6 +36,21 @@ interface IUserListProps {
 }
 
 export default function UserList({ onUserClick }: IUserListProps) {
+  const [userMessages, setUserMessages] =
+    useState<UserContent[]>(userChatContent);
+
+  const handleUserClick = (user: UserContent) => {
+    onUserClick(user);
+    const selectedUser = userMessages?.find(
+      (e: UserContent) => e.id === user.id
+    );
+    const updatedOrderOfUsers = [
+      selectedUser,
+      ...userMessages.filter((e: UserContent) => e.id !== user.id),
+    ] as UserContent[];
+    setUserMessages(updatedOrderOfUsers);
+  };
+
   return (
     <Box sx={UserListContainerStyles}>
       <Box id="search-container" display={"flex"} alignItems="center" p={1}>
@@ -44,14 +60,14 @@ export default function UserList({ onUserClick }: IUserListProps) {
       <Divider sx={{ background: "#f5f6f6" }} />
 
       <Box sx={{ overflowY: "auto", height: "75vh" }}>
-        {userChatContent?.map((content: UserContent, i: number) => (
+        {userMessages?.map((content: UserContent, i: number) => (
           <User
             id={content.id}
             key={i}
             name={content.name}
             content={content.content}
             createdAt={content.createdAt}
-            onUserClick={onUserClick}
+            onUserClick={handleUserClick}
           />
         ))}
       </Box>

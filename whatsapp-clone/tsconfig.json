@@ -23,7 +23,8 @@
       "@core/*": ["core/*"],
       "@seeds": ["seeds/"],
       "@types": ["types/"],
-      "@store": ["core/store/"]
+      "@store": ["core/store/"],
+      "@hoc": ["components/hoc"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
