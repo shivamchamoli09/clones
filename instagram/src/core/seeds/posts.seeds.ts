@@ -223,7 +223,7 @@ export const posts: PostType[] = [
       },
       {
         id: 2,
-        url: "/mypost1.jpg",
+        url: "/post1.jpg",
       },
     ],
     comments: [
